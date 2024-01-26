@@ -1,12 +1,12 @@
 # For-Each Example
-In this example, we as the consumer create a complex input variable type called `projects` that is a map of objects to allow creating multiple Projects via a `for_each` meata-argument inside of your module block.
+In this example, we as the consumer create a complex input variable type called `projects` that is a map of objects to enable the creation and management of multiple Projects via a `for_each` meata-argument inside of our module block.
 
 
 ```hcl
 module "projects" {
   for_each = var.projects
-  source  = "alexbasista/projecter/tfe"
-  version = "0.2.0"
+  source   = "alexbasista/projecter/tfe"
+  version  = "0.2.0"
 
   organization = var.organization
   project_name = each.key
