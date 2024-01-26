@@ -6,7 +6,7 @@ In this example, we as the consumer create a complex input variable type called 
 module "projects" {
   for_each = var.projects
   source   = "alexbasista/projecter/tfe"
-  version  = "0.2.0"
+  version  = "0.1.1"
 
   organization = var.organization
   project_name = each.key
@@ -29,16 +29,16 @@ projects = {
       tfc-owners = "admin"
       app-team-1 = "maintain"
     }
-    variable_set_names = ["aws-creds-1", "tfe-team-token-1"] # must be non-global variable set
-    policy_set_names   = ["aws-policies", "prj-1-policies"]  # must be non-global policy set
+    variable_set_names = ["aws-creds-1", "tfe-team-token-1"]
+    policy_set_names   = ["aws-policies", "prj-1-policies"]
   }
   my-prj-2 = {
     team_access = {
       tfc-owners = "admin"
       app-team-2 = "write"
     }
-    variable_set_names = ["aws-creds-2", "tfe-team-token-2"] # must be non-global variable set
-    policy_set_names   = ["aws-policies", "prj-2-policies"]  # must be non-global policy set
+    variable_set_names = ["aws-creds-2", "tfe-team-token-2"]
+    policy_set_names   = ["aws-policies", "prj-2-policies"]
   }
 }
 ```

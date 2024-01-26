@@ -1,6 +1,7 @@
 module "projects" {
   for_each = var.projects
-  source   = "../.."
+  source   = "alexbasista/projecter/tfe"
+  version  = "0.1.1"
 
   organization = var.organization
   project_name = each.key
