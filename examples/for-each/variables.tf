@@ -1,7 +1,7 @@
 variable "projects" {
   type = map(
     object({
-      team_access = optional(map(string))
+      team_access = optional(map(string), {})
       custom_team_access = optional(map(object({
         project_access = object({
           settings = string
@@ -18,9 +18,9 @@ variable "projects" {
           run_tasks      = bool
           locking        = bool
         })
-      })))
-      variable_set_names = optional(list(string))
-      policy_set_names   = optional(list(string))
+      })), {})
+      variable_set_names = optional(list(string), [])
+      policy_set_names   = optional(list(string), [])
     })
   )
   description = "Custom map of objects that defines Projects configuration."
