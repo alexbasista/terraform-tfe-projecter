@@ -1,12 +1,12 @@
 data "tfe_team" "managed" {
-  for_each = var.team_access
+  for_each = var.team_access == null ? {} : var.team_access
 
   name         = each.key
   organization = var.organization
 }
 
 resource "tfe_team_project_access" "managed" {
-  for_each = var.team_access
+  for_each = var.team_access == null ? {} : var.team_access
 
   project_id = tfe_project.project.id
   team_id    = [for t in [data.tfe_team.managed[each.key]] : t.id if t.name == each.key][0]
@@ -14,14 +14,14 @@ resource "tfe_team_project_access" "managed" {
 }
 
 data "tfe_team" "custom" {
-  for_each = var.custom_team_access
+  for_each = var.custom_team_access == null ? {} : var.custom_team_access
 
   name         = each.key
   organization = var.organization
 }
 
 resource "tfe_team_project_access" "custom" {
-  for_each = var.custom_team_access
+  for_each = var.custom_team_access == null ? {} : var.custom_team_access
 
   project_id = tfe_project.project.id
   team_id    = [for t in [data.tfe_team.custom[each.key]] : t.id if t.name == each.key][0]

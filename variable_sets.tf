@@ -1,5 +1,5 @@
 data "tfe_variable_set" "vs" {
-  for_each = toset(var.variable_set_names)
+  for_each = var.variable_set_names == null ? [] : toset(var.variable_set_names)
 
   name         = each.value
   organization = var.organization

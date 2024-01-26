@@ -1,5 +1,5 @@
 data "tfe_policy_set" "ps" {
-  for_each = toset(var.policy_set_names)
+  for_each = var.policy_set_names == null ? [] : toset(var.policy_set_names)
 
   name         = each.value
   organization = var.organization
