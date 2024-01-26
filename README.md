@@ -5,7 +5,7 @@ Terraform module to create and configure Projects in Terraform Cloud/Enterprise,
 ```hcl
 module "projecter" {
   source  = "alexbasista/projecter/tfe"
-  version = "0.1.0"
+  version = "0.2.0"
 
   organization = "my-tfc-org"
   project_name = "my-new-project"

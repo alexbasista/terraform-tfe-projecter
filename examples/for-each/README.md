@@ -5,7 +5,8 @@ In this example, we as the consumer create a complex input variable type called 
 ```hcl
 module "projects" {
   for_each = var.projects
-  source   = "../.."
+  source  = "alexbasista/projecter/tfe"
+  version = "0.2.0"
 
   organization = var.organization
   project_name = each.key
@@ -18,8 +19,8 @@ module "projects" {
 ```
   
   
-**terraform.tfvars**
-```
+**terraform.tfvars:**
+```hcl
 organization = "my-tfc-org"
 
 projects = {

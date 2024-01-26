@@ -54,7 +54,7 @@ variable "custom_team_access" {
 #------------------------------------------------------------------------------
 variable "variable_set_names" {
   type        = list(string)
-  description = "List of names of existing Variable Sets to apply to Project."
+  description = "List of names of existing Variable Set(s) to apply to Project. Variable Set(s) cannot be global."
   default     = []
 }
 
@@ -63,6 +63,6 @@ variable "variable_set_names" {
 #------------------------------------------------------------------------------
 variable "policy_set_names" {
   type        = list(string)
-  description = "List of names of existing Policy Sets to enforce on Project."
+  description = "List of names of existing Policy Set(s) to enforce on Project. Policy Set(s) cannot be global."
   default     = []
 }
