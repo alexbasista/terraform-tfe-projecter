@@ -1,6 +1,8 @@
 variable "projects" {
   type = map(
     object({
+      description = optional(string, null)
+      tag_names   = optional(list(string), [])
       team_access = optional(map(string), {})
       custom_team_access = optional(map(object({
         project_access = object({

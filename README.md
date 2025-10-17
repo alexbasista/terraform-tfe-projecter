@@ -9,6 +9,8 @@ module "projecter" {
 
   organization = "my-tfc-org"
   project_name = "my-new-project"
+  description  = "My project description"
+  tag_names    = ["tag1", "tag2"]
 
   team_access = {
     tfc-admins = "admin"
@@ -19,6 +21,14 @@ module "projecter" {
 > Note: Setting a `TFE_TOKEN` environment variable is the recommended approach for the TFE provider auth. Alternatively, you could run `terraform login`.
 
 See the [examples](./examples/) directory for more detailed scenarios.
+
+### Project Description and Tags
+The `description` and `tag_names` input variables are optional and can be used to provide additional metadata for the Project.
+
+```hcl
+  description = "Production environment project"
+  tag_names   = ["production", "aws", "team-platform"]
+```
 
 ### Team Access
 To configure RBAC on the Project, there are two options:

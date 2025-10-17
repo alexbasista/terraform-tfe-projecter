@@ -8,6 +8,18 @@ variable "project_name" {
   description = "Name of Project."
 }
 
+variable "description" {
+  type        = string
+  description = "Description of Project."
+  default     = null
+}
+
+variable "tag_names" {
+  type        = list(string)
+  description = "List of tag names to apply to Project."
+  default     = []
+}
+
 variable "team_access" {
   type        = map(string)
   description = "Map of existing Team(s) and built-in permissions to grant on Project."

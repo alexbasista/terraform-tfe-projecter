@@ -16,6 +16,18 @@ variable "project_name" {
   }
 }
 
+variable "description" {
+  type        = string
+  description = "Description of Project."
+  default     = null
+}
+
+variable "tag_names" {
+  type        = list(string)
+  description = "List of tag names to apply to Project."
+  default     = []
+}
+
 #------------------------------------------------------------------------------
 # Project Team Access
 #------------------------------------------------------------------------------

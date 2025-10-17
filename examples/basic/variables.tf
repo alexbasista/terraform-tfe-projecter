@@ -12,3 +12,15 @@ variable "project_name" {
     error_message = "Project name must be between 3 and 36 characters in length."
   }
 }
+
+variable "description" {
+  type        = string
+  description = "Description of Project."
+  default     = null
+}
+
+variable "tag_names" {
+  type        = list(string)
+  description = "List of tag names to apply to Project."
+  default     = []
+}
