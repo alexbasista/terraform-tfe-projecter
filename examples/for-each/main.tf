@@ -6,7 +6,7 @@ module "projects" {
   organization = var.organization
   project_name = each.key
   description  = each.value.description
-  tag_names    = each.value.tag_names
+  tags         = each.value.tags
 
   team_access        = each.value.team_access
   custom_team_access = each.value.custom_team_access

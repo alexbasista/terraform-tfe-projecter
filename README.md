@@ -10,7 +10,10 @@ module "projecter" {
   organization = "my-tfc-org"
   project_name = "my-new-project"
   description  = "My project description"
-  tag_names    = ["tag1", "tag2"]
+  tags = {
+    environment = "production"
+    team        = "platform"
+  }
 
   team_access = {
     tfc-admins = "admin"
@@ -23,11 +26,15 @@ module "projecter" {
 See the [examples](./examples/) directory for more detailed scenarios.
 
 ### Project Description and Tags
-The `description` and `tag_names` input variables are optional and can be used to provide additional metadata for the Project.
+The `description` and `tags` input variables are optional and can be used to provide additional metadata for the Project.
 
 ```hcl
   description = "Production environment project"
-  tag_names   = ["production", "aws", "team-platform"]
+  tags = {
+    environment = "production"
+    service     = "aws"
+    team        = "platform"
+  }
 ```
 
 ### Team Access

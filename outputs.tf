@@ -21,9 +21,9 @@ output "description" {
   value       = tfe_project.project.description
 }
 
-output "tag_names" {
-  description = "Tag names applied to the project"
-  value       = tfe_project.project.tag_names
+output "tags" {
+  description = "Tags applied to the project"
+  value       = tfe_project.project.tags
 }
 
 #------------------------------------------------------------------------------

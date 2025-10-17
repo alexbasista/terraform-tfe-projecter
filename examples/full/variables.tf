@@ -14,10 +14,10 @@ variable "description" {
   default     = null
 }
 
-variable "tag_names" {
-  type        = list(string)
-  description = "List of tag names to apply to Project."
-  default     = []
+variable "tags" {
+  type        = map(string)
+  description = "Map of key-value tags to apply to Project."
+  default     = {}
 }
 
 variable "team_access" {
