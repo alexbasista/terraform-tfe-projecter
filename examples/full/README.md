@@ -1,27 +1,29 @@
 # Projecter Example - Full
-In this example, the module call creates a Project within the specified Organization,
-and configures the Project to include the following:
+
+In this example, a project is created with additional settings specified:
+ 
  - [team access](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/team_project_access)
  - [custom team access](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/team_project_access#custom-access)
  - [variable sets](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/project_variable_set)
  - [policy sets](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/project_policy_set)
 
 ## Usage
+
 ```hcl
 module "projecter" {
   source  = "alexbasista/projecter/tfe"
-  version = "0.1.0"
+  version = "x.x.x"
 
   organization = "my-tfc-org"
   project_name = "my-new-project"
 
   team_access = {
-    tfc-admins = "admin"
-    app-team   = "maintain"
+    example-platform-team = "admin"
+    example-app-team-1    = "maintain"
   }
 
   custom_team_access = {
-    governance-team = {
+    example-app-team-2 = {
       project_access = {
         settings = "read"
         teams    = "read"
@@ -38,7 +40,7 @@ module "projecter" {
         locking        = false
       }
     }
-    operations-team = {
+    example-ops-team = {
       project_access = {
         settings = "update"
         teams    = "read"
@@ -57,7 +59,7 @@ module "projecter" {
     }
   }
 
-  variable_set_names = ["aws-creds", "tfe-api-token"]
-  policy_set_names   = ["sentinel-global-policies", "sentinel-aws-policies"]
+  variable_set_names = ["example-varset-1", "example-varset-2"]
+  policy_set_names   = ["example-polset-1", "example-polset-2"]
 }
 ```
