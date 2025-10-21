@@ -3,6 +3,8 @@ module "projecter" {
 
   organization = var.organization
   project_name = var.project_name
+  description  = var.description
+  tags         = var.tags
   
   team_access        = var.team_access
   custom_team_access = var.custom_team_access

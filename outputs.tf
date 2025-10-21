@@ -16,6 +16,16 @@ output "organization" {
   value       = tfe_project.project.organization
 }
 
+output "description" {
+  description = "Description of the project"
+  value       = tfe_project.project.description
+}
+
+output "tags" {
+  description = "Tags applied to the project"
+  value       = tfe_project.project.tags
+}
+
 #------------------------------------------------------------------------------
 # Team Access Outputs
 #------------------------------------------------------------------------------

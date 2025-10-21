@@ -16,6 +16,18 @@ variable "project_name" {
   }
 }
 
+variable "description" {
+  type        = string
+  description = "Description of Project."
+  default     = null
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "Map of key-value tags to apply to Project."
+  default     = {}
+}
+
 #------------------------------------------------------------------------------
 # Project Team Access
 #------------------------------------------------------------------------------
