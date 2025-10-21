@@ -1,12 +1,13 @@
-# For-Each Example
-In this example, we as the consumer create a complex input variable type called `projects` that is a map of objects to enable the creation and management of multiple Projects via a `for_each` meata-argument inside of our module block.
+# Projecter Example - For-Each
+
+In this example, the consumer creates a complex input variable type called `projects` that is a map of objects to enable the creation and management of multiple projects via a `for_each` meta-argument inside of our module block.
 
 
 ```hcl
 module "projects" {
   for_each = var.projects
   source   = "alexbasista/projecter/tfe"
-  version  = "0.1.1"
+  version  = "x.x.x"
 
   organization = var.organization
   project_name = each.key
@@ -16,29 +17,28 @@ module "projects" {
   variable_set_names = each.value.variable_set_names
   policy_set_names   = each.value.policy_set_names
 }
-```
-  
+```  
   
 **terraform.tfvars:**
 ```hcl
 organization = "my-tfc-org"
 
 projects = {
-  my-prj-1 = {
+  my-new-prj-1 = {
     team_access = {
-      tfc-owners = "admin"
-      app-team-1 = "maintain"
+      example-platform-team = "admin"
+      example-app-team-1    = "maintain"
     }
-    variable_set_names = ["aws-creds-1", "tfe-team-token-1"]
-    policy_set_names   = ["aws-policies", "prj-1-policies"]
+    variable_set_names = ["example-varset-1", "example-varset-2"]
+    policy_set_names   = ["example-polset-1", "example-polset-a"]
   }
-  my-prj-2 = {
+  my-new-prj-2 = {
     team_access = {
-      tfc-owners = "admin"
-      app-team-2 = "write"
+      example-platform-team = "admin"
+      example-app-team-2    = "write"
     }
-    variable_set_names = ["aws-creds-2", "tfe-team-token-2"]
-    policy_set_names   = ["aws-policies", "prj-2-policies"]
+    variable_set_names = ["example-varset-3", "example-varset-4"]
+    policy_set_names   = ["example-polset-1", "example-polset-b"]
   }
 }
 ```
