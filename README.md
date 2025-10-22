@@ -109,13 +109,13 @@ To enforce a Policy Set on the Project, the input variable `policy_set_names` ac
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.0 |
-| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | >= 0.51.1 |
+| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~> 0.70 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | >= 0.51.1 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.70 |
 
 ## Resources
 
@@ -138,7 +138,9 @@ To enforce a Policy Set on the Project, the input variable `policy_set_names` ac
 | <a name="input_organization"></a> [organization](#input\_organization) | Name of Organization to create Project in. | `string` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Name of Project. | `string` | n/a | yes |
 | <a name="input_custom_team_access"></a> [custom\_team\_access](#input\_custom\_team\_access) | Map of existing Team(s) and custom permissions to grant on Project. If used, all keys in the object must be specified. | <pre>map(<br/>    object({<br/>      project_access = object({<br/>        settings = string<br/>        teams    = string<br/>      })<br/>      workspace_access = object({<br/>        create         = bool<br/>        delete         = bool<br/>        move           = bool<br/>        runs           = string<br/>        variables      = string<br/>        state_versions = string<br/>        sentinel_mocks = string<br/>        run_tasks      = bool<br/>        locking        = bool<br/>      })<br/>    })<br/>  )</pre> | `{}` | no |
+| <a name="input_description"></a> [description](#input\_description) | Description of Project. | `string` | `null` | no |
 | <a name="input_policy_set_names"></a> [policy\_set\_names](#input\_policy\_set\_names) | List of names of existing Policy Set(s) to enforce on Project. Policy Set(s) cannot be global. | `list(string)` | `[]` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Map of key-value tags to apply to Project. | `map(string)` | `{}` | no |
 | <a name="input_team_access"></a> [team\_access](#input\_team\_access) | Map of existing Team(s) and built-in permissions to grant on Project. | `map(string)` | `{}` | no |
 | <a name="input_variable_set_names"></a> [variable\_set\_names](#input\_variable\_set\_names) | List of names of existing Variable Set(s) to apply to Project. Variable Set(s) cannot be global. | `list(string)` | `[]` | no |
 
@@ -147,12 +149,14 @@ To enforce a Policy Set on the Project, the input variable `policy_set_names` ac
 | Name | Description |
 |------|-------------|
 | <a name="output_custom_team_access_ids"></a> [custom\_team\_access\_ids](#output\_custom\_team\_access\_ids) | Map of team names to their project access resource IDs (custom permissions). |
+| <a name="output_description"></a> [description](#output\_description) | Description of the project |
 | <a name="output_organization"></a> [organization](#output\_organization) | Organization that the project belongs to |
 | <a name="output_policy_set_ids"></a> [policy\_set\_ids](#output\_policy\_set\_ids) | Map of policy set names to their IDs enforced on the project |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | ID of the project |
 | <a name="output_project_name"></a> [project\_name](#output\_project\_name) | Name of the project |
 | <a name="output_project_policy_set_ids"></a> [project\_policy\_set\_ids](#output\_project\_policy\_set\_ids) | Map of policy set names to their project policy set resource IDs |
 | <a name="output_project_variable_set_ids"></a> [project\_variable\_set\_ids](#output\_project\_variable\_set\_ids) | Map of variable set names to their project variable set resource IDs |
+| <a name="output_tags"></a> [tags](#output\_tags) | Tags applied to the project |
 | <a name="output_team_access_ids"></a> [team\_access\_ids](#output\_team\_access\_ids) | Map of team names to their project access resource IDs (fixed permissions) |
 | <a name="output_variable_set_ids"></a> [variable\_set\_ids](#output\_variable\_set\_ids) | Map of variable set names to their IDs applied to the project |
 <!-- END_TF_DOCS -->
